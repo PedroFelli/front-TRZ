@@ -1,0 +1,21 @@
+section form .update-header{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+section form .update-header label{
+  font-size: 25px;
+}
+
+
+section form p{
+  font-weight: 700;
+  margin-top: 5px;
+  color: var(--color-primary-dark);
+}
+section form p::before{
+
+    display: inline;
+    content: "⚠ ";
+
+}
