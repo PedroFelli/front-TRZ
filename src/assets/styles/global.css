@@ -68,6 +68,11 @@ body, input, button, textarea{
 
 }
 
+.text-strong{
+  font-weight: 700;
+}
+
+
 
 @media(min-width: 700px){
   :root{

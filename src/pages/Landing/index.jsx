@@ -16,15 +16,15 @@ function Landing() {
               </button>
             </Link>
 
-            <Link to="/update-information/7c11d177-29cb-4abd-8ecb-3319f01acbf1">
+            <Link to="/dashboard">
               <button type="button" className="button-primary">
-                Update location
+                Login
               </button>
             </Link>
 
-            <Link to="/survivor/7c11d177-29cb-4abd-8ecb-3319f01acbf1/report">
+            <Link to="/survivor/list">
               <button type="button" className="button-primary">
-                Flag survivor
+                Check people status
               </button>
             </Link>
           </div>

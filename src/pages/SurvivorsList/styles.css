@@ -1,0 +1,13 @@
+.survivor-item{
+  padding: 5px;
+  background: #ececec;
+  border: 1px solid #cacaca;
+  border-radius: 0.8rem;
+  margin-top: 2.4rem;
+
+  -webkit-box-shadow: 6px 4px 5px -1px rgba(140,140,140,1);
+  -moz-box-shadow: 6px 4px 5px -1px rgba(140,140,140,1);
+  box-shadow: 6px 4px 5px -1px rgba(140,140,140,1);
+}
+
+

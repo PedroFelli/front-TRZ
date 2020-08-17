@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -11,7 +11,8 @@ import './styles.css';
 
 const UpdateLocation = () => {
   const { id } = useParams();
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, setValue } = useForm();
+  const history = useHistory();
   const [survivors, setSurvivors] = useState([]);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const UpdateLocation = () => {
     await api
       .post(`report/${id}`, data)
       .then(() => {
+        history.push('/');
         toast.success('Survivor has been flagged');
       })
       .catch((error) => {
@@ -41,11 +43,20 @@ const UpdateLocation = () => {
       });
   }
 
-  const options = survivors.map((survivor) => {
-    return survivor.name;
-  });
+  function handleChangeSelect(name) {
+    const findSurvivor = survivors.find((survivor) => {
+      if (survivor.name === name) return true;
+    });
 
-  console.log(options);
+    setValue('infected_id', findSurvivor.id);
+  }
+
+  const options = [
+    'Select..',
+    ...survivors.map((survivor) => {
+      return survivor.name;
+    }),
+  ];
 
   return (
     <div className="container">
@@ -54,9 +65,10 @@ const UpdateLocation = () => {
           <div className="buttonsContainer">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="input-block">
-                <label htmlFor="name">Select survivor</label>
+                <label htmlFor="name">Find survivor</label>
                 <Select
                   name="gender"
+                  onChange={(e) => handleChangeSelect(e.target.value)}
                   register={register({ required: true })}
                   options={options}
                 />

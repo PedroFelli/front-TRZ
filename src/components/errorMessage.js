@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ErrroMessage({ error }) {
+export default function errorMessage({ error }) {
   if (error) {
     switch (error.type) {
       case 'required':

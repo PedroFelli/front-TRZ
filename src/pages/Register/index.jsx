@@ -36,7 +36,7 @@ const Register = () => {
 
     await api
       .post('survivors', data)
-      .then((response) => {
+      .then(() => {
         toast.success('Survivor successfully registered!');
         history.push('/');
       })
@@ -82,8 +82,8 @@ const Register = () => {
                 <option value="" disabled defaultValue="selected">
                   Select your gender
                 </option>
-                <option value="1">Man</option>
-                <option value="1">Woman</option>
+                <option value="Man">Man</option>
+                <option value="Woman">Woman</option>
               </select>
             </div>
             <ErrorMessage error={errors.gender} />

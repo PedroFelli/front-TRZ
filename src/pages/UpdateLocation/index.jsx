@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -36,7 +36,6 @@ const UpdateLocation = () => {
       await api.put(`survivors/${id}`, data);
       toast.success('Profile updated successfully.');
     } catch (err) {
-      console.log(err);
       toast.error('Error trying again.');
     }
   }
