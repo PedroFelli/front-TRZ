@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -12,6 +12,7 @@ import './styles.css';
 
 const UpdateLocation = () => {
   const { id } = useParams();
+  const history = useHistory();
   const { register, handleSubmit, errors, setValue } = useForm();
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const UpdateLocation = () => {
     try {
       await api.put(`survivors/${id}`, data);
       toast.success('Profile updated successfully.');
+      history.push(`/dashboard/${id}`);
     } catch (err) {
       toast.error('Error trying again.');
     }
@@ -97,7 +99,7 @@ const UpdateLocation = () => {
               Save
             </button>
 
-            <Link to="/">
+            <Link to={`/dashboard/${id}/`}>
               <button type="button" className="button-primary">
                 Back
               </button>

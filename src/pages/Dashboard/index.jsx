@@ -1,37 +1,55 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
 import Loading from '../../components/Loading';
-import ErrorMessage from '../../components/errorMessage';
 
 import './styles.css';
 
-const Dashboard = () => {
-  const history = useHistory();
-  const [loading, setLoading] = useState(false);
-  const { register, handleSubmit, errors, setValue } = useForm();
+const UpdateLocation = () => {
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [survivor, setSurvivor] = useState('');
+  const [items, setItems] = useState('');
 
-  async function onSubmit(data) {
-    setLoading(true);
-    console.log(data);
+  useEffect(() => {
+    async function loadSurvivor() {
+      await api
+        .get(`survivors/${id}`)
+        .then((response) => {
+          setSurvivor(response.data);
+        })
+        .catch((error) => {
+          toast.error(
+            error.response?.data ? error.response.data : 'Error try again!'
+          );
+          setLoading(false);
+        });
+    }
 
-    await api
-      .get(`survivors/${data.id}`)
-      .then(() => {
-        // history.push('/');
-        toast.success('Survivor has been flagged');
-        setLoading(false);
-      })
-      .catch((error) => {
-        toast.error(error.response.data);
-        setLoading(false);
-      });
-  }
+    async function loadItems() {
+      await api
+        .get(`survivors/${id}/properties`)
+        .then((response) => {
+          setItems(response.data);
+
+          setLoading(false);
+        })
+        .catch((error) => {
+          toast.error(
+            error.response?.data
+              ? error.response.data
+              : 'Error try again later.'
+          );
+          setLoading(false);
+        });
+    }
+
+    loadItems();
+    loadSurvivor();
+  }, []);
 
   if (loading) {
     return <Loading />;
@@ -41,35 +59,51 @@ const Dashboard = () => {
     <div className="container">
       <div className="main">
         <section>
-          <div className="">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="input-block">
-                <label className="text-strong" htmlFor="name">
-                  Survivor ID:
-                </label>
-                <input
-                  type="text"
-                  name="id"
-                  placeholder="Your identification.."
-                  ref={register({ required: true })}
-                />
-              </div>
-              <ErrorMessage error={errors.id} />
-
-              <button type="submit" className="button-primary">
-                Find
+          <legend>Welcome {survivor.name}!</legend>
+          <p>
+            <strong>Status</strong>:{' '}
+            {survivor.infected ? <span>Infected</span> : <span>Clear</span>}
+          </p>
+          <p>
+            <strong>Last Location</strong>: {survivor.lonlat}
+          </p>
+          <legend>Resources</legend>
+          <div className="items-container">
+            {items.map((item) => {
+              return (
+                <p>
+                  <strong>Item:</strong>
+                  {item.Item.name} <strong>Quantity:</strong> {item.quantity}
+                </p>
+              );
+            })}
+          </div>
+          <div className="items-container">
+            <Link to={`/update-information/${id}`}>
+              <button type="button" className="button-primary action-button">
+                Update Information
               </button>
-            </form>
+            </Link>
+            <Link to={`/survivor/${id}/report`}>
+              <button type="button" className="button-primary action-button">
+                Flag survivor
+              </button>
+            </Link>
             <Link to="/">
-              <button type="button" className="button-primary">
-                Back
+              <button type="button" className="button-primary action-button">
+                Trade items
               </button>
             </Link>
           </div>
+          <Link to="/">
+            <button type="button" className="button-primary">
+              Back
+            </button>
+          </Link>
         </section>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default UpdateLocation;

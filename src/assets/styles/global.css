@@ -72,6 +72,10 @@ body, input, button, textarea{
   font-weight: 700;
 }
 
+.action-button{
+  min-width: 177px;
+}
+
 
 
 @media(min-width: 700px){

@@ -41,7 +41,9 @@ const Register = () => {
         history.push('/');
       })
       .catch((error) => {
-        toast.error(error.response.data);
+        toast.error(
+          error.response?.data ? error.response.data : 'Error try again!'
+        );
       });
   }
 

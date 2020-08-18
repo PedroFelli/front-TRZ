@@ -90,7 +90,7 @@ const UpdateLocation = () => {
                 Flag Survivor
               </button>
             </form>
-            <Link to="/">
+            <Link to={`/dashboard/${id}/`}>
               <button type="button" className="button-primary">
                 Back
               </button>

@@ -16,7 +16,7 @@ function Landing() {
               </button>
             </Link>
 
-            <Link to="/dashboard">
+            <Link to="/signin">
               <button type="button" className="button-primary">
                 Login
               </button>
