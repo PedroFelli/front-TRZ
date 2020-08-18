@@ -13,6 +13,7 @@ const UpdateLocation = () => {
   const { id } = useParams();
   const { register, handleSubmit, errors, setValue } = useForm();
   const history = useHistory();
+
   const [survivors, setSurvivors] = useState([]);
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const UpdateLocation = () => {
     await api
       .post(`report/${id}`, data)
       .then(() => {
-        history.push('/');
+        history.push(`/dashboard/${id}`);
         toast.success('Survivor has been flagged');
       })
       .catch((error) => {
