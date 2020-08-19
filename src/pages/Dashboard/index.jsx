@@ -90,7 +90,11 @@ const UpdateLocation = () => {
               </button>
             </Link>
             <Link to="/">
-              <button type="button" className="button-primary action-button">
+              <button
+                type="button"
+                disabled
+                className="button-primary action-button"
+              >
                 Trade items
               </button>
             </Link>

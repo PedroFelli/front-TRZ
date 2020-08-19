@@ -25,7 +25,7 @@ const SurvivorsList = () => {
         })
         .catch((error) => {
           toast.error('Error connecting to the server');
-          history.push('/');
+          history.push('/survivor/list');
         });
     }
 

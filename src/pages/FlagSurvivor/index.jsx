@@ -40,7 +40,9 @@ const UpdateLocation = () => {
         toast.success('Survivor has been flagged');
       })
       .catch((error) => {
-        toast.error(error.response.data);
+        toast.error(
+          error.response?.data ? error.response.data : 'Error try again!'
+        );
       });
   }
 
