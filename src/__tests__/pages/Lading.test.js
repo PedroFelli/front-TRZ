@@ -11,7 +11,7 @@ describe('Landing', () => {
   it('should be able to render page', () => {
     const { container } = render(<App />);
 
-    expect(container.innerHTML).toMatch('What you gonna do:');
+    expect(container.innerHTML).toMatch('What you wanna do:');
   });
 
   it('should be able to navigate to register page', () => {

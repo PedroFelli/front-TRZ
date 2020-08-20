@@ -30,7 +30,7 @@ const SurvivorsList = () => {
     }
 
     loadSurvivor();
-  }, []);
+  }, [history]);
 
   if (loading) {
     return <Loading />;

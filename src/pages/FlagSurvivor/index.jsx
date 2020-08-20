@@ -3,14 +3,17 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import api from '../../services/api';
 import ErrorMessage from '../../components/errorMessage';
+import Loading from '../../components/Loading';
+
+import api from '../../services/api';
 import Select from '../../components/Select';
 
 import './styles.css';
 
-const UpdateLocation = () => {
+const FlagSurvivor = () => {
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
   const { register, handleSubmit, errors, setValue } = useForm();
   const history = useHistory();
 
@@ -22,6 +25,7 @@ const UpdateLocation = () => {
         .get(`survivors/`)
         .then((response) => {
           setSurvivors(response.data);
+          setLoading(false);
         })
         .catch((error) => {
           toast.success('Error to load survivors');
@@ -60,6 +64,10 @@ const UpdateLocation = () => {
       return survivor.name;
     }),
   ];
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="container">
@@ -105,4 +113,4 @@ const UpdateLocation = () => {
   );
 };
 
-export default UpdateLocation;
+export default FlagSurvivor;

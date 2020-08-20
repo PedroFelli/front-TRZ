@@ -1,8 +1,4 @@
 
-section{
-  flex: 1;
-  width: 60%;
-}
 
 .registerContainer{
 
@@ -29,8 +25,6 @@ section{
 
 }
 
-
-
 .resourcesGrid{
   display: flex;
   flex-direction: row;
@@ -49,92 +43,5 @@ section{
   flex-direction: column;
 }
 
-a{
-  text-decoration: none;
-}
-
-legend{
-  font: 700 2.4rem 'Red Rose', cursivo;;
-  color: var(--color-text-title);
-  margin-bottom: 2.4rem;
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: 1.6rem;
-  padding-top: 1.6rem;
-  border-bottom: 1px solid var(--color-line-in-white);
-}
-
-
-.button-primary{
-  width: 100%;
-  height: 5.6rem;
-  background:  var(--color-primary);
-  color: var(--color-button-text);
-  border: 0;
-  border-radius: 0.8rem;
-  cursor: pointer;
-  font: 700 1.6rem 'Red Rose', cursivo;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: background-color 0.2s;
-  margin-top: 3.2rem;
-}
-
-.button-primary:hover{
-  background: var(--color-primary-dark);
-}
-
-.input-block{
-  position: relative;
-}
-
-.input-block + .input-block{
-  margin-top: 1.4rem;
-}
-
-.input-block label{
-  font-size: 1.4rem;
-}
-
-.input-block input{
-
-  width: 100%;
-  height: 5.6rem;
-  margin-top: 0.8rem;
-  border-radius: 0.8rem;
-  background: var(--color-input-background);
-  border: 1px solid var(--color-line-in-white);
-  outline: 0;
-  padding: 0 1.6rem;
-  font: 1.6rem 'Red Rose', cursivo;
-}
-
-.input-block:focus-within::after{
-  width: calc(100% - 3.2);
-  height: 2px;
-  content: '';
-  background: var(--color-primary-dark);
-  position: absolute;
-  left: 1.6rem;
-  right: 1.6rem;
-  bottom: 0;
-}
-
-select{
-  width: 100%;
-  height: 5.6rem;
-  margin-top: 0.8rem;
-  border-radius: 0.8rem;
-  background: var(--color-input-background);
-  border: 1px solid var(--color-line-in-white);
-  outline: 0;
-  resize: vertical;
-  padding: 1.2 1.2rem;
-  font: 1.6rem 'Red Rose', cursivo;
-}
 
 

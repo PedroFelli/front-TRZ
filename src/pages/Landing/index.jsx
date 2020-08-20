@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-function Landing() {
+const Landing = () => {
   return (
     <div className="container">
       <div className="main">
         <section>
-          <h1>What you gonna do:</h1>
+          <h1>What you wanna do:</h1>
           <div className="buttonsContainer">
             <Link to="/register">
               <button type="button" className="button-primary">
@@ -32,6 +32,6 @@ function Landing() {
       </div>
     </div>
   );
-}
+};
 
 export default Landing;

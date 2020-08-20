@@ -34,12 +34,6 @@ describe('SurvivorList', () => {
 
     await fireEvent.click(getByText('Check people status'));
 
-    // function sleep(ms) {
-    //   return new Promise((resolve) => setTimeout(resolve, ms));
-    // }
-
-    // await sleep(4000);
-
     expect(getAllByTitle('Pedro Fellipe')).toBeTruthy();
   });
 });

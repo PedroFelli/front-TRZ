@@ -8,7 +8,7 @@ import Loading from '../../components/Loading';
 
 import './styles.css';
 
-const UpdateLocation = () => {
+const Dashboard = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [survivor, setSurvivor] = useState('');
@@ -49,7 +49,7 @@ const UpdateLocation = () => {
 
     loadItems();
     loadSurvivor();
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <Loading />;
@@ -110,4 +110,4 @@ const UpdateLocation = () => {
   );
 };
 
-export default UpdateLocation;
+export default Dashboard;

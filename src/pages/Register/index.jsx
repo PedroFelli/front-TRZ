@@ -38,7 +38,7 @@ const Register = () => {
       .post('survivors', data)
       .then(() => {
         toast.success('Survivor successfully registered!');
-        history.push('/');
+        history.push('/survivor/list');
       })
       .catch((error) => {
         console.log(error);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -11,7 +11,7 @@ import ErrorMessage from '../../components/errorMessage';
 
 import './styles.css';
 
-const Dashboard = () => {
+const SignIn = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, errors } = useForm();
@@ -73,4 +73,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default SignIn;
