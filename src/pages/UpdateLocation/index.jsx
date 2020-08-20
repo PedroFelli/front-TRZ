@@ -64,7 +64,7 @@ const UpdateLocation = () => {
 
           <div className="input-block">
             <label htmlFor="age">Age</label>
-            <input type="number" name="age" disabled ref={register()} />
+            <input type="number" name="age" ref={register()} />
           </div>
           <div className="input-block">
             <label htmlFor="gender">Gender</label>

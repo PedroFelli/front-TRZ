@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import MockAdapter from 'axios-mock-adapter';
 
 import api from '../../services/api';
+import App from '~/App';
 
 const apiMock = new MockAdapter(api);
 
@@ -33,11 +34,11 @@ describe('SurvivorList', () => {
 
     await fireEvent.click(getByText('Check people status'));
 
-    function sleep(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
+    // function sleep(ms) {
+    //   return new Promise((resolve) => setTimeout(resolve, ms));
+    // }
 
-    await sleep(4000);
+    // await sleep(4000);
 
     expect(getAllByTitle('Pedro Fellipe')).toBeTruthy();
   });

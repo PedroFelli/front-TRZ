@@ -41,6 +41,7 @@ const Register = () => {
         history.push('/');
       })
       .catch((error) => {
+        console.log(error);
         toast.error(
           error.response?.data ? error.response.data : 'Error try again!'
         );
