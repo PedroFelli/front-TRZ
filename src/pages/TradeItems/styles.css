@@ -1,0 +1,21 @@
+.items-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .items-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: normal;
+  }
+
+  .action-button{
+    min-width: 175px;
+  }
+
+}

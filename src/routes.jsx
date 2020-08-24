@@ -8,6 +8,7 @@ import FlagSurvivor from './pages/FlagSurvivor';
 import SurvivorsList from './pages/SurvivorsList';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
+import TradeItems from './pages/TradeItems';
 
 function Routes() {
   return (
@@ -16,6 +17,7 @@ function Routes() {
       <Route path="/signin" component={SignIn} />
       <Route path="/register" component={Register} />
       <Route path="/dashboard/:id" component={Dashboard} />
+      <Route path="/trade-item/:id/" component={TradeItems} />
       <Route path="/update-information/:id" component={UpdateInfo} />
       <Route path="/survivor/list" component={SurvivorsList} />
       <Route path="/survivor/:id/report" component={FlagSurvivor} />

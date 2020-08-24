@@ -89,12 +89,8 @@ const Dashboard = () => {
                 Flag survivor
               </button>
             </Link>
-            <Link to="/">
-              <button
-                type="button"
-                disabled
-                className="button-primary action-button"
-              >
+            <Link to={`/trade-item/${id}`}>
+              <button type="button" className="button-primary action-button">
                 Trade items
               </button>
             </Link>
